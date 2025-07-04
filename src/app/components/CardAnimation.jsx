@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Faq from "./Faq";
+import FlyingText from "./FlyingText";
 
 const hexWithAlpha = (hex, alpha) => {
   return `${hex}${Math.round(alpha * 255)
@@ -12,6 +13,7 @@ const hexWithAlpha = (hex, alpha) => {
 const CardAnimation = () => {
   const targetRef = useRef(null);
   const containerRef = useRef(null);
+  const faqSectionRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -23,43 +25,50 @@ const CardAnimation = () => {
     offset: ["start start", "end end"],
   });
 
+  // FAQ section scroll progress for upward clamping animation
+  const { scrollYProgress: faqScrollProgress } = useScroll({
+    target: faqSectionRef,
+    offset: ["start end", "end start"],
+  });
+
   const bgColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
     [
-      hexWithAlpha("#000000", 0.8),
-      hexWithAlpha("#000000", 0.6),
-      hexWithAlpha("#A6FF00", 1),
+      hexWithAlpha("#000000", 1),
+      hexWithAlpha("#000000", 1),
+      hexWithAlpha("#000000", 1),
     ]
   );
 
-  const faqTranslateY = useTransform(
-    containerScrollProgress,
-    [0.1, 0.1],
-    ["10vh", "0vh"]
-  );
+  // Transform for FAQ to clamp upward over the fixed last card
+  // const faqTranslateY = useTransform(
+  //   faqScrollProgress,
+  //   [0, 0.3, 1],
+  //   ["100vh", "0vh", "0vh"]
+  // );
 
   const cards = [
     {
       id: 1,
-      title: "First Card",
+      title: "Influencer Driven",
       description: "This is the first card in our stack animation.",
-      color: "from-purple-600 to-blue-600",
-      videoUrl: "",
+      color: "from-[#00BDB7] to-[#00BDB7]",
+      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
     },
     {
       id: 2,
       title: "Second Card",
       description: "This is the second card that stacks above the first.",
-      color: "from-pink-600 to-purple-600",
-      videoUrl: "",
+      color: "from-[#FE4747] to-[#FE4747]",
+      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
     },
     {
       id: 3,
       title: "Check cool Public Figure",
       description: "This is the third card completing our deck.",
-      color: "from-orange-600 to-pink-600",
-      videoUrl: "",
+      color: "from-[#FF801A] to-[#FF801A]",
+      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
     },
   ];
 
@@ -123,13 +132,24 @@ const CardAnimation = () => {
     },
   };
 
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024); // you can adjust the breakpoint as needed
+    };
+    handleResize(); // set initially
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div ref={containerRef} className="relative">
-      <div className="h-[1vh] bg-black text-white flex items-center justify-center"></div>
+      <div className="lg:h-[1vh] bg-black"></div>
 
       <motion.div
         ref={targetRef}
-        className="min-h-[400vh] transition-all duration-300"
+        className="min-h-[320vh] lg:min-h-[350vh] transition-all duration-300"
         style={{ backgroundColor: bgColor }}
       >
         <div className="relative min-h-[300vh]">
@@ -164,7 +184,7 @@ const CardAnimation = () => {
                   <div className="container mx-auto p-5 lg:p-8 h-full">
                     <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-0 lg:justify-between h-full">
                       <motion.div
-                        className="lg:basis-[45%] space-y-2 lg:space-y-6"
+                        className="lg:basis-[45%] space-y-2 lg:space-y-6 pt-20 lg:pt-0"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.3 }}
@@ -172,20 +192,20 @@ const CardAnimation = () => {
                       >
                         <div className="space-y-2 lg:space-y-4">
                           <motion.h1
-                            className="text-4xl font-bold text-white leading-tight"
+                            className="text-3xl lg:text-6xl font-bold text-white leading-tight"
                             variants={childVariants}
                           >
                             {card.title}
                           </motion.h1>
                           <motion.p
-                            className="text-gray-200 text-base lg:text-lg leading-relaxed"
+                            className="text-gray-200 text-base lg:text-4xl "
                             variants={childVariants}
                           >
                             {card.description}
                           </motion.p>
                         </div>
 
-                        <motion.div
+                        {/* <motion.div
                           className="flex gap-2 lg:gap-4"
                           variants={childVariants}
                         >
@@ -205,12 +225,16 @@ const CardAnimation = () => {
                           >
                             Explore
                           </motion.button>
-                        </motion.div>
+                        </motion.div> */}
                       </motion.div>
 
                       <motion.div
                         className="lg:basis-[45%] w-full h-full flex items-center justify-center"
-                        initial={{ opacity: 0, x: 50, rotate: -10 }}
+                        initial={{
+                          opacity: 0,
+                          x: 50,
+                          rotate: isMobile ? 0 : -10,
+                        }}
                         whileInView={{ opacity: 1, x: 0, rotate: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{
@@ -219,7 +243,7 @@ const CardAnimation = () => {
                           delay: 0.2,
                         }}
                       >
-                        <div className="relative w-full h-[60vh] lg:h-[90vh] rounded-3xl overflow-hidden bg-white shadow-2xl">
+                        <div className="relative w-full h-[60vh] rounded-3xl overflow-hidden bg-white shadow-2xl">
                           <video
                             ref={(el) => (videoRefs.current[index] = el)}
                             muted
@@ -241,9 +265,7 @@ const CardAnimation = () => {
         </div>
       </motion.div>
 
-      <motion.div className="relative z-50" style={{ y: faqTranslateY }}>
-        <Faq />
-      </motion.div>
+    
     </div>
   );
 };

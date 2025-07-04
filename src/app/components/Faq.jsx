@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaInstagram, FaFacebook, FaXTwitter, FaTiktok } from "react-icons/fa6";
-
+import { motion } from "framer-motion";
 const socialLinks = [
   {
     name: "Facebook",
@@ -63,18 +63,16 @@ const Faq = () => {
       id="faq"
       className="mx-auto px-4 py-12 text-white relative bg-white lg:p-16  
                  transition-all duration-1000 ease-out
-                 shadow-2xl border-t border-gray-800/50
-                 backdrop-blur-sm"
+                 backdrop-blur-sm rounded-t-[50px] lg:rounded-t-[100px] border-t-2 border-white/50"
       style={{
         background: "linear-gradient(135deg, #000000 0%, #000000 100%)",
         boxShadow:
           "0 -20px 50px rgba(0, 0, 0, 0.8), 0 -5px 20px rgba(255, 255, 255, 0.1)",
-          borderRadius: "520px",
       }}
     >
       {/* Animated header */}
       <div
-        className="text-6xl text-center py-5 lg:py-10 
+        className="text-7xl text-center py-5 lg:py-10 
                       bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent
                       animate-pulse"
       >
@@ -82,22 +80,29 @@ const Faq = () => {
       </div>
 
       {/* Social links section with hover effects */}
-      <div className="py-10 flex flex-col lg:flex-row gap-4 justify-between items-center socials">
+      <div className="py-10 flex flex-col md:flex-row gap-4 justify-between items-center socials">
         <div className="text-sm text-gray-400 transition-colors duration-300 hover:text-white">
           connect@chatingo.com
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-4">
           {socialLinks.map((item, index) => (
-            <Link
+            <motion.a
               href={item.link}
               target="_blank"
               key={index}
-              className="flex items-center justify-center w-8 h-8 rounded-full text-textColor   
-                         transition-all duration-300 transform hover:scale-125 hover:rotate-12
-                         border border-textColor hover:border-white hover:shadow-lg hover:shadow-white/25"
+              whileHover={{
+                scale: 1.5,
+                rotate: [0, 10, -10, 0],
+                boxShadow: "0px 0px 15px rgba(255,255,255,0.5)",
+                transition: { type: "spring", stiffness: 300, damping: 10 },
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="text-white border border-white/20 w-10 h-10 flex items-center justify-center 
+                 rounded-full text-xl backdrop-blur-sm
+                 transition-all duration-300 hover:bg-white/10"
             >
               {item.icon}
-            </Link>
+            </motion.a>
           ))}
         </div>
       </div>

@@ -8,6 +8,7 @@ import LottieReviewPlayer from "./components/LottieReviewPlayer";
 import Faq from "./components/Faq";
 import JoinButton from "./components/JoinButton";
 import MobileLottiePlayer from "./components/MobileLottiePlayer";
+import FlyingText from "./components/FlyingText";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,9 +31,8 @@ export default function Home() {
           <div className="bg-black">
             <LottiePlayer />
             <MobileLottiePlayer />
-            <div className="">
               <CardAnimation />
-            </div>
+              <FlyingText />
             {/* <Faq /> */}
 
             <JoinButton />

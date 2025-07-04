@@ -335,7 +335,7 @@ export default function ModernGlowingForm({ setShowForm }) {
             <button
               type="submit"
               onClick={handleSubmit}
-              className={`w-full py-3 px-6 text-black font-semibold rounded-xl submit-button cursor-pointer content-item ${isClosing ? 'animate-out' : 'animate-in'}`}
+              className={`w-full py-3 px-6 text-black hover:text-white font-semibold rounded-xl submit-button cursor-pointer content-item ${isClosing ? 'animate-out' : 'animate-in'}`}
             >
               Submit
             </button>

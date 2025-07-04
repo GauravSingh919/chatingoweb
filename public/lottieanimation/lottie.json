@@ -9,35 +9,35 @@
   "ddd": 0,
   "assets": [
     {
-      "id": "Lady.jpg",
+      "id": "Man.png",
       "w": 488,
       "h": 488,
       "u": "/images/",
-      "p": "Lady.jpg",
+      "p": "Man.png",
       "e": 0
     },
     {
-      "id": "Lady.jpg",
+      "id": "Lady.png",
       "w": 486,
       "h": 486,
       "u": "/images/",
-      "p": "",
+      "p": "Lady.png",
       "e": 0
     },
     {
-      "id": "Avatar 10.png",
+      "id": "GirlPose.png",
       "w": 486,
       "h": 486,
-      "u": "",
-      "p":"",
+      "u": "/images/",
+      "p": "GirlPose.png",
       "e": 0
     },
     {
-      "id": "Avatar 08.png",
+      "id": "SmileMan.png",
       "w": 488,
       "h": 488,
-      "u": "",
-    "p": "",
+      "u": "/images/",
+      "p": "SmileMan.png",
       "e": 0
     },
     {
@@ -45,15 +45,15 @@
       "w": 488,
       "h": 488,
       "u": "",
-      "p" : "",
-      "e" : 0
+      "p": "",
+      "e": 0
     },
     {
       "id": "Avatar 09.png",
       "w": 488,
       "h": 488,
       "u": "",
-      "p" : "",
+      "p": "",
       "e": 1
     }
   ],
@@ -62,9 +62,9 @@
       "ddd": 0,
       "ind": 1,
       "ty": 2,
-      "nm": "Lady.jpg",
+      "nm": "Man.png",
       "parent": 2,
-      "refId": "Lady.jpg",
+      "refId": "Man.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -1587,9 +1587,9 @@
       "ddd": 0,
       "ind": 8,
       "ty": 2,
-      "nm": "Lady.jpg",
+      "nm": "Lady.png",
       "parent": 9,
-      "refId": "Lady.jpg",
+      "refId": "Lady.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -2130,9 +2130,9 @@
       "ddd": 0,
       "ind": 11,
       "ty": 2,
-      "nm": "Avatar 30",
+      "nm": "GirlPose.png",
       "parent": 12,
-      "refId": "Avatar 10.png",
+      "refId": "GirlPose.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -2679,9 +2679,9 @@
       "ddd": 0,
       "ind": 14,
       "ty": 2,
-      "nm": "Avatar 29",
+      "nm": "SmileMan.png",
       "parent": 15,
-      "refId": "Avatar 08.png",
+      "refId": "SmileMan.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -3228,9 +3228,9 @@
       "ddd": 0,
       "ind": 17,
       "ty": 2,
-      "nm": "Avatar 28",
+      "nm": "Lady.png",
       "parent": 18,
-      "refId": "Lady.jpg",
+      "refId": "Lady.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -4917,9 +4917,9 @@
       "ddd": 0,
       "ind": 27,
       "ty": 2,
-      "nm": "Avatar 23",
+      "nm": "Lady.png",
       "parent": 28,
-      "refId": "Lady.jpg",
+      "refId": "Lady.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -5460,9 +5460,9 @@
       "ddd": 0,
       "ind": 30,
       "ty": 2,
-      "nm": "Avatar 24",
+      "nm": "GirlPose.png",
       "parent": 31,
-      "refId": "Avatar 10.png",
+      "refId": "GirlPose.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -6011,7 +6011,7 @@
       "ty": 2,
       "nm": "Avatar 25",
       "parent": 34,
-      "refId": "Avatar 08.png",
+      "refId": "SmileMan.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -6560,7 +6560,7 @@
       "ty": 2,
       "nm": "Avatar 26",
       "parent": 37,
-      "refId": "Lady.jpg",
+      "refId": "Man.png",
       "sr": 1,
       "ks": {
         "o": {

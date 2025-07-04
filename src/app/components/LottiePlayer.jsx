@@ -11,23 +11,24 @@ const LottiePlayer = () => {
   const lastScrollY = useRef(0);
   const lastTextIndex = useRef(0);
 
-  // Enhanced scroll texts with segment-level color control and proper spacing
+  // Enhanced scroll texts with segment-level color control, proper spacing, and custom sizes
   const scrollTexts = [
     {
       text: "Chatingo",
       lines: [
         [
-          { text: "Chatin", color: "text-white" },
-          { text: "go", color: "text-yellow-400" },
+          { text: "Chatin", color: "text-white", size: "text-4xl md:text-5xl lg:text-6xl xl:text-7xl" },
+          { text: "go", color: "text-[#E4EF31]", size: "text-4xl md:text-5xl lg:text-6xl xl:text-7xl" },
         ],
         [
-          { text: "Go Live", color: "text-white" },
-          { text: " ", color: "text-white" }, // Proper space
-
-          { text: "Public", color: "text-white" },
-          { text: " ", color: "text-white" }, // Proper space
-
-          { text: "Share", color: "text-white" },
+          { text: "Go Live", color: "text-gray-300", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: "Posts", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: "Reels", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: "Stories", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
         ],
       ],
     },
@@ -35,9 +36,9 @@ const LottiePlayer = () => {
       text: "Discover Innovation",
       lines: [
         [
-          { text: "Discover", color: "text-green-400" },
-          { text: " ", color: "text-white" }, // Proper space
-          { text: "Innovation", color: "text-purple-400" },
+          { text: "Discover", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "Innovation", color: "text-[#FE4747]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
         ],
       ],
     },
@@ -45,42 +46,42 @@ const LottiePlayer = () => {
       text: "Create Your Future",
       lines: [
         [
-          { text: "Create", color: "text-orange-400" },
-          { text: " ", color: "text-white" },
-          { text: "Your", color: "text-white" },
-          { text: " ", color: "text-white" },
-          { text: "Future", color: "text-cyan-400" },
+          { text: "Create", color: "text-[#FF801A]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "Your", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "Future", color: "text-[#00bdb7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
         ],
       ],
     },
     {
       text: "Sell Services",
       lines: [
-        [{ text: "Sell Products", color: "text-yellow-400" }],
-        [{ text: "Sell Accounts", color: "text-green-400" }],
-        [{ text: "Sell Unique", color: "text-pink-400" }],
+        [{ text: "Sell Products", color: "text-[#FF801A]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" }],
+        [{ text: "Share Ideas", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" }],
+        [{ text: "Showcase Talent", color: "text-[#E4EF31]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" }],
       ],
     },
     {
       text: "Welcome to the industry and checkout our latest features",
       lines: [
         [
-          { text: "Welcome", color: "text-emerald-400" },
-          { text: " ", color: "text-white" },
-          { text: "to", color: "text-emerald-400" },
-          { text: " ", color: "text-white" },
-          { text: "the", color: "text-emerald-400" },
-          { text: " ", color: "text-white" },
-          { text: "industry", color: "text-emerald-400" },
+          { text: "Welcome", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "to", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "the", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "industry", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
         ],
         [
-          { text: "checkout", color: "text-indigo-400" },
-          { text: " ", color: "text-white" },
-          { text: "our", color: "text-indigo-400" },
-          { text: " ", color: "text-white" },
-          { text: "latest", color: "text-indigo-400" },
-          { text: " ", color: "text-white" },
-          { text: "features", color: "text-rose-400" },
+          { text: "checkout", color: "text-[#E4EF31]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "our", color: "text-[#E4EF31]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "latest", color: "text-[#E4EF31]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "features", color: "text-[#FE4747]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
         ],
       ],
     },
@@ -162,7 +163,7 @@ const LottiePlayer = () => {
             {line.map((segment, segmentIndex) => (
               <span
                 key={segmentIndex}
-                className={`${segment.color} text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold`}
+                className={`${segment.color} ${segment.size || 'text-xl md:text-2xl lg:text-3xl xl:text-4xl'} font-semibold`}
                 style={{
                   whiteSpace: segment.text === " " ? "pre" : "nowrap",
                 }}
@@ -218,7 +219,7 @@ const LottiePlayer = () => {
         >
           <div className="text-center px-10 xl:w-1/2">
             <h1
-              className="text-center break-words text-[20px] sm:text-2xl md:text-3xl lg:text-5xl font-bold drop-shadow-2xl transition-all duration-300 ease-out leading-tight"
+              className="text-center break-words font-bold drop-shadow-2xl transition-all duration-300 ease-out leading-tight"
               style={{
                 opacity: textOpacity,
                 transform: `scale(${textZoomScale})`,

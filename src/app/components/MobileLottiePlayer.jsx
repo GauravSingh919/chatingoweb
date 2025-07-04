@@ -18,8 +18,18 @@ const MobileLottiePlayer = () => {
       text: "Chatingo",
       lines: [
         [
-          { text: "Chatin", color: "text-white" },
-          { text: "go", color: "text-yellow-400" },
+          { text: "Chatin", color: "text-white", size: "text-6xl md:text-5xl lg:text-6xl xl:text-7xl" },
+          { text: "go", color: "text-yellow-400", size: "text-6xl md:text-5xl lg:text-6xl xl:text-7xl" },
+        ],
+        [
+          { text: "Go Live", color: "text-gray-300", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: "Posts", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: "Reels", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: "Stories", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
         ],
       ],
     },
@@ -27,9 +37,9 @@ const MobileLottiePlayer = () => {
       text: "Discover Innovation",
       lines: [
         [
-          { text: "Discover", color: "text-green-400" },
-          { text: " ", color: "text-white" }, // Proper space
-          { text: "Innovation", color: "text-purple-400" },
+          { text: "Discover", color: "text-green-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "Innovation", color: "text-purple-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
         ],
       ],
     },
@@ -37,47 +47,48 @@ const MobileLottiePlayer = () => {
       text: "Create Your Future",
       lines: [
         [
-          { text: "Create", color: "text-orange-400" },
-          { text: " ", color: "text-white" },
-          { text: "Your", color: "text-white" },
-          { text: " ", color: "text-white" },
-          { text: "Future", color: "text-cyan-400" },
+          { text: "Create", color: "text-orange-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "Your", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "Future", color: "text-cyan-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
         ],
       ],
     },
     {
       text: "Sell Services",
       lines: [
-        [{ text: "Sell Products", color: "text-yellow-400" }],
-        [{ text: "Sell Accounts", color: "text-green-400" }],
-        [{ text: "Sell Unique", color: "text-pink-400" }],
+        [{ text: "Sell Products", color: "text-yellow-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" }],
+        [{ text: "Share Ideas", color: "text-green-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" }],
+        [{ text: "Showcase Talent", color: "text-pink-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" }],
       ],
     },
     {
       text: "Welcome to the industry and checkout our latest features",
       lines: [
         [
-          { text: "Welcome", color: "text-emerald-400" },
-          { text: " ", color: "text-white" },
-          { text: "to", color: "text-emerald-400" }
+          { text: "Welcome", color: "text-emerald-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "to", color: "text-emerald-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "the", color: "text-emerald-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
         ],
         [
-          { text: " ", color: "text-white" },
-          { text: "the", color: "text-emerald-400" },
-          { text: " ", color: "text-white" },
-          { text: "industry", color: "text-red-400" },
+
+          { text: "industry", color: "text-emerald-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
         ],
         [
-          { text: "checkout", color: "text-indigo-400" },
-          { text: " ", color: "text-white" },
-          { text: "our", color: "text-indigo-400" }
+          { text: "checkout", color: "text-indigo-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "our", color: "text-indigo-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "latest", color: "text-indigo-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
         ],
-        [
-          { text: " ", color: "text-white" },
-          { text: "latest", color: "text-rose-400" },
-          { text: " ", color: "text-white" },
-          { text: "features", color: "text-violet-400" },
-        ],
+       [
+          { text: "features", color: "text-rose-400", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+       ] ,
       ],
     },
     {
@@ -111,7 +122,7 @@ const MobileLottiePlayer = () => {
         lastScrollY.current = currentScroll;
 
         const textIndex = Math.min(
-          Math.floor(currentScroll / 350),
+          Math.floor(currentScroll / 300),
           scrollTexts.length - 1
         );
 
@@ -169,7 +180,7 @@ const MobileLottiePlayer = () => {
     
     // Scroll-based zoom
     const maxZoom = 3;
-    const scrollZoom = 1 + (scrollY / (scrollTexts.length * 350)) * (maxZoom - 1);
+    const scrollZoom = 1 + (scrollY / (scrollTexts.length * 300)) * (maxZoom - 1);
     
     return bufferedScale * scrollZoom;
   };
@@ -178,7 +189,7 @@ const MobileLottiePlayer = () => {
 
   // Progressive text scaling - each section gets bigger (mobile optimized)
   const baseTextScale = 1 + currentTextIndex * 0.25;
-  const scrollProgress = (scrollY % 350) / 350;
+  const scrollProgress = (scrollY % 300) / 300;
   const additionalScale = 1 + scrollProgress * 0.15;
   const textZoomScale = baseTextScale * additionalScale;
 
@@ -187,7 +198,7 @@ const MobileLottiePlayer = () => {
     : scrollProgress < 0.8
     ? 1
     : 1 - (scrollProgress - 0.8) / 0.2;
-  const fadeOutLottie = scrollY > (scrollTexts.length - 1) * 350;
+  const fadeOutLottie = scrollY > (scrollTexts.length - 1) * 300;
 
   const renderColoredText = (textObj) => {
     if (!textObj.lines || !Array.isArray(textObj.lines)) return null;
@@ -202,7 +213,7 @@ const MobileLottiePlayer = () => {
             {line.map((segment, segmentIndex) => (
               <span
                 key={segmentIndex}
-                className={`${segment.color} text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold`}
+                className={`${segment.color} ${segment.size || 'text-xl md:text-2xl lg:text-3xl xl:text-4xl'} font-semibold`}
                 style={{
                   whiteSpace: segment.text === " " ? "pre" : "nowrap",
                 }}
@@ -215,15 +226,14 @@ const MobileLottiePlayer = () => {
       </div>
     );
   };
-
   return (
     <div>
       <div
         className="relative xl:hidden"
-        style={{ height: `${scrollTexts.length * 60}vh` }}
+        style={{ height: `${scrollTexts.length * 40}vh` }}
       >
         {/* Fixed Lottie Background - Full Screen Coverage */}
-        <div className="fixed inset-0 w-screen h-screen ">
+        <div className="fixed inset-0 w-screen h-screen  overflow-hidden">
           <div
             className="absolute inset-0 flex items-center justify-center"
             style={{
@@ -257,7 +267,7 @@ const MobileLottiePlayer = () => {
         >
           <div className="text-center px-4 sm:px-6 md:px-10 max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl">
             <h1
-              className="text-center break-words text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold drop-shadow-2xl transition-all duration-350 ease-out leading-tight sm:leading-snug md:leading-normal"
+              className="text-center break-words text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold drop-shadow-2xl transition-all duration-300 ease-out leading-tight sm:leading-snug md:leading-normal"
               style={{
                 opacity: textOpacity,
                 transform: `scale(${textZoomScale})`,
