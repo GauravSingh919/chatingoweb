@@ -56,7 +56,7 @@ const CardAnimation = () => {
     },
     {
       id: 3,
-      title: "Third Card",
+      title: "Check cool Public Figure",
       description: "This is the third card completing our deck.",
       color: "from-orange-600 to-pink-600",
       videoUrl: "",
