@@ -1,63 +1,89 @@
-'use client'
-import React, { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 const FlyingText = () => {
-  const [mounted, setMounted] = useState(false);
-  const containerRef = useRef(null);
+  const sectionRef = useRef(null);
+  // const isInView = useInView(sectionRef, { once: false, amount: 0.1 });
+
   const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
+    target: sectionRef,
+    offset: ["start center", "end center"],
   });
 
-  // Transform values for zoom effect (starts small, scales up as user scrolls)
-  const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.5, 0.8, 1.2, 1.5]);
-  const borderRadius = useTransform(scrollYProgress, [0, 0.5, 1], [50, 50, 30]);
-  
-  // Transform values for text animation
-  const textOpacity = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8], [0, 0, 1, 1]);
-  const textY = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8], [100, 50, 0, 0]);
+  // Track screen width to apply responsive scaling
+  const [maxScale, setMaxScale] = useState(13); // default for large screens
 
   useEffect(() => {
-    setMounted(true);
+    const updateScale = () => {
+      const width = window.innerWidth;
+      if (width < 300) setMaxScale(2);
+      else if (width < 480) setMaxScale(4);
+      else if (width < 768) setMaxScale(6);
+      else if (width < 1024) setMaxScale(8);
+      else if (width < 1440) setMaxScale(8);
+      else if (width < 1536) setMaxScale(11);
+      else setMaxScale(13);
+    };
+
+    updateScale(); // on mount
+    window.addEventListener("resize", updateScale); // on resize
+    return () => window.removeEventListener("resize", updateScale);
   }, []);
 
-  if (!mounted) return null;
+  // Apply responsive scale transform
+  const scale = useTransform(scrollYProgress, [0, 0.9], [0.1, maxScale]);
+  const borderRadius = useTransform(scrollYProgress, [0, 0.9], [100, 100]);
+  const borderColor = useTransform(
+    scrollYProgress,
+    [0, 0.7, 0.85],
+    ["rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 0.3)", "rgba(0, 0, 0, 0)"]
+  );
+  const textOpacity = useTransform(scrollYProgress, [0.7, 0.9], [0, 1]);
+  const textY = useTransform(scrollYProgress, [0.7, 0.9], [0, 0]);
 
   return (
-    <div className="relative">
-      {/* Content to create scroll space */}
-      <div className="h-[300vh] bg-black">
-        {/* Fixed container for the animation */}
-        <div className="fixed inset-0 flex items-center justify-center bg-black overflow-hidden">
-          {/* Animated rounded border */}
+    <div ref={sectionRef} className="relative h-[300vh] 2xl:h-[400vh] ">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <motion.div
+          className="border-[2px] w-[160px] xl:w-[180px] h-[70px] flex items-center justify-center relative"
+          style={{
+            scale,
+            borderRadius,
+            borderColor,
+          }}
+          initial={false}
+          transition={{
+            type: "spring",
+            stiffness: 50,
+            damping: 20,
+            mass: 1,
+          }}
+        >
           <motion.div
-            className="border-white border-[17px] w-[80vw] h-[80vh] flex items-center justify-center"
+            className="absolute inset-0 flex items-center justify-center text-center z-10"
             style={{
-              scale,
-              borderRadius: borderRadius,
+              opacity: textOpacity,
+              y: textY,
             }}
-            initial={{ scale: 0.3 }}
           >
-            {/* Animated text */}
-            <motion.div
-              className="text-center px-8"
+            <motion.h1
+              className="text-white font-semibold leading-tight px-4 z-10 text-wrap"
               style={{
-                opacity: textOpacity,
-                y: textY,
+                fontSize: "clamp(9px, 1.2vw, 12px)",
+              }}
+              initial={false}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+                delay: 0.2,
               }}
             >
-              <motion.h1 
-                className="text-4xl md:text-6xl lg:text-8xl xl:text-9xl text-white font-bold leading-tight"
-                initial={{ opacity: 0, y: 100 }}
-              >
-                Lets make Chatingo. Together
-              </motion.h1>
-            </motion.div>
+              Let’s make Chatin
+              <span className="text-[#E4EF31]">go.</span> Together.
+            </motion.h1>
           </motion.div>
-        </div>
-
-
+        </motion.div>
       </div>
     </div>
   );

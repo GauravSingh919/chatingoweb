@@ -62,54 +62,54 @@ export default function ModernGlowingForm({ setShowForm }) {
     <div 
       className={`fixed inset-0 z-50 flex items-center justify-center px-4 transition-all duration-500 ease-out ${
         isVisible && !isClosing
-          ? 'opacity-100 backdrop-blur-sm bg-black/50' 
-          : 'opacity-0 backdrop-blur-none bg-black/0'
+          ? 'opacity-100 backdrop-blur-sm bg-[#0a0a0a]/50' 
+          : 'opacity-0 backdrop-blur-none bg-[#0a0a0a]/0'
       }`}
     >
       <style jsx>{`
         @keyframes border-glow {
           0% {
-            box-shadow: 0 0 20px rgba(255, 165, 0, 0.8),
-              0 0 40px rgba(255, 165, 0, 0.4),
-              inset 0 0 20px rgba(255, 165, 0, 0.1);
+            box-shadow: 0 0 20px #FFFFFF80,
+              0 0 40px #FFFFFF40,
+              inset 0 0 20px #FFFFFF10;
           }
           25% {
-            box-shadow: 0 0 20px rgba(255, 20, 147, 0.8),
-              0 0 40px rgba(255, 20, 147, 0.4),
-              inset 0 0 20px rgba(255, 20, 147, 0.1);
+            box-shadow: 0 0 20px #FE474780,
+              0 0 40px #FE474740,
+              inset 0 0 20px #FE474710;
           }
           50% {
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8),
-              0 0 40px rgba(0, 255, 255, 0.4),
-              inset 0 0 20px rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 20px #00BDB780,
+              0 0 40px #00BDB740,
+              inset 0 0 20px #00BDB710;
           }
           75% {
-            box-shadow: 0 0 20px rgba(50, 255, 50, 0.8),
-              0 0 40px rgba(50, 255, 50, 0.4),
-              inset 0 0 20px rgba(50, 255, 50, 0.1);
+            box-shadow: 0 0 20px #E4EF3180,
+              0 0 40px #E4EF3140,
+              inset 0 0 20px #E4EF3110;
           }
           100% {
-            box-shadow: 0 0 20px rgba(255, 165, 0, 0.8),
-              0 0 40px rgba(255, 165, 0, 0.4),
-              inset 0 0 20px rgba(255, 165, 0, 0.1);
+            box-shadow: 0 0 20px #FFFFFF80,
+              0 0 40px #FFFFFF40,
+              inset 0 0 20px #FFFFFF10;
           }
         }
 
         @keyframes border-color {
           0% {
-            border-color: rgba(255, 165, 0, 0.8);
+            border-color: #FFFFFF80;
           }
           25% {
-            border-color: rgba(255, 20, 147, 0.8);
+            border-color: #FE474780;
           }
           50% {
-            border-color: rgba(0, 255, 255, 0.8);
+            border-color: #00BDB780;
           }
           75% {
-            border-color: rgba(50, 255, 50, 0.8);
+            border-color: #E4EF3180;
           }
           100% {
-            border-color: rgba(255, 165, 0, 0.8);
+            border-color: #FFFFFF80;
           }
         }
 
@@ -207,8 +207,8 @@ export default function ModernGlowingForm({ setShowForm }) {
         }
 
         .input-focus-glow:focus {
-          box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.5);
-          border-color: rgba(0, 255, 255, 0.8);
+          box-shadow: 0 0 0 2px #00BDB780;
+          border-color: #00BDB780;
           transform: translateY(-1px);
         }
 
@@ -217,7 +217,7 @@ export default function ModernGlowingForm({ setShowForm }) {
         }
 
         .submit-button {
-          background: linear-gradient(135deg, #84cc16, #65a30d);
+          background: #00BDB7;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
           overflow: hidden;
@@ -230,7 +230,7 @@ export default function ModernGlowingForm({ setShowForm }) {
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          background: #00BDB7;
           transition: left 0.4s ease;
         }
 
@@ -239,9 +239,9 @@ export default function ModernGlowingForm({ setShowForm }) {
         }
 
         .submit-button:hover {
-          background: linear-gradient(135deg, #65a30d, #84cc16);
+          background: #00BDB7;
           transform: translateY(-2px);
-          box-shadow: 0 10px 20px rgba(132, 204, 22, 0.3);
+          box-shadow: 0 10px 20px #00BDB740;
         }
 
         .close-button {

@@ -3,7 +3,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useState, useEffect, useCallback, useRef } from "react";
 import CardAnimation from "./CardAnimation";
 
-const LottiePlayer = () => {
+const Banner = () => {
   const [scrollY, setScrollY] = useState(0);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -17,18 +17,18 @@ const LottiePlayer = () => {
       text: "Chatingo",
       lines: [
         [
-          { text: "Chatin", color: "text-white", size: "text-4xl md:text-5xl lg:text-6xl xl:text-7xl" },
-          { text: "go", color: "text-[#E4EF31]", size: "text-4xl md:text-5xl lg:text-6xl xl:text-7xl" },
+          { text: "Chatin", color: "text-white", size: "text-4xl md:text-5xl lg:text-6xl xl:text-8xl" },
+          { text: "go", color: "text-[#E4EF31]", size: "text-4xl md:text-5xl lg:text-6xl xl:text-8xl" },
         ],
         [
-          { text: "Go Live", color: "text-gray-300", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
-          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
-          { text: "Posts", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
-          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
-          { text: "Reels", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
-          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
-          { text: "Stories", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
-          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-3xl" },
+          { text: "Go Live", color: "text-gray-300", size: "text-lg md:text-xl lg:text-2xl xl:text-2xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-2xl" },
+          { text: "Posts", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-2xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-2xl" },
+          { text: "Reels", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-2xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-2xl" },
+          { text: "Stories", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-2xl" },
+          { text: " ", color: "text-white", size: "text-lg md:text-xl lg:text-2xl xl:text-2xl" },
         ],
       ],
     },
@@ -36,9 +36,9 @@ const LottiePlayer = () => {
       text: "Discover Innovation",
       lines: [
         [
-          { text: "Discover", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
-          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
-          { text: "Innovation", color: "text-[#FE4747]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "Discover", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" },
+          { text: "Innovation", color: "text-[#FE4747]", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" },
         ],
       ],
     },
@@ -46,20 +46,20 @@ const LottiePlayer = () => {
       text: "Create Your Future",
       lines: [
         [
-          { text: "Create", color: "text-[#FF801A]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
-          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
-          { text: "Your", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
-          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
-          { text: "Future", color: "text-[#00bdb7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" },
+          { text: "Create", color: "text-[#FF801A]", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" },
+          { text: "Your", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" },
+          { text: " ", color: "text-white", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" },
+          { text: "Future", color: "text-[#00bdb7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" },
         ],
       ],
     },
     {
       text: "Sell Services",
       lines: [
-        [{ text: "Sell Products", color: "text-[#FF801A]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" }],
-        [{ text: "Share Ideas", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" }],
-        [{ text: "Showcase Talent", color: "text-[#E4EF31]", size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl" }],
+        [{ text: "Sell Products", color: "text-[#FF801A]", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" }],
+        [{ text: "Share Ideas", color: "text-[#00BDB7]", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" }],
+        [{ text: "Showcase Talent", color: "text-[#E4EF31]", size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl" }],
       ],
     },
     {
@@ -181,7 +181,7 @@ const LottiePlayer = () => {
     <div>
       <div
         className="relative hidden xl:block"
-        style={{ height: `${scrollTexts.length * 60}vh` }}
+        style={{ height: `${scrollTexts.length * 50}vh` }}
       >
         <div className="fixed inset-0">
           {/* Fixed Lottie Background - Desktop */}
@@ -235,4 +235,4 @@ const LottiePlayer = () => {
   );
 };
 
-export default LottiePlayer;
+export default Banner;

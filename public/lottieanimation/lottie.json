@@ -9,11 +9,11 @@
   "ddd": 0,
   "assets": [
     {
-      "id": "Man.png",
+      "id": "Man.jpeg",
       "w": 488,
       "h": 488,
       "u": "/images/",
-      "p": "Man.png",
+      "p": "Man.jpeg",
       "e": 0
     },
     {
@@ -33,28 +33,28 @@
       "e": 0
     },
     {
-      "id": "SmileMan.png",
+      "id": "SmileMan.jpeg",
       "w": 488,
       "h": 488,
       "u": "/images/",
-      "p": "SmileMan.png",
+      "p": "SmileMan.jpeg",
       "e": 0
     },
     {
-      "id": "Avatar 12.png",
+      "id": "Girl.png",
       "w": 488,
       "h": 488,
-      "u": "",
-      "p": "",
+      "u": "/images/",
+      "p": "Girl.png",
       "e": 0
     },
     {
-      "id": "Avatar 09.png",
+      "id": "PhoneMan.png",
       "w": 488,
       "h": 488,
-      "u": "",
-      "p": "",
-      "e": 1
+      "u": "/images/",
+      "p": "PhoneMan.png",
+      "e": 0
     }
   ],
   "layers": [
@@ -62,9 +62,9 @@
       "ddd": 0,
       "ind": 1,
       "ty": 2,
-      "nm": "Man.png",
+      "nm": "Man.jpeg",
       "parent": 2,
-      "refId": "Man.png",
+      "refId": "Man.jpeg",
       "sr": 1,
       "ks": {
         "o": {
@@ -2679,9 +2679,9 @@
       "ddd": 0,
       "ind": 14,
       "ty": 2,
-      "nm": "SmileMan.png",
+      "nm": "SmileMan.jpeg",
       "parent": 15,
-      "refId": "SmileMan.png",
+      "refId": "SmileMan.jpeg",
       "sr": 1,
       "ks": {
         "o": {
@@ -3228,9 +3228,9 @@
       "ddd": 0,
       "ind": 17,
       "ty": 2,
-      "nm": "Lady.png",
+      "nm": "Man.jpeg",
       "parent": 18,
-      "refId": "Lady.png",
+      "refId": "Man.jpeg",
       "sr": 1,
       "ks": {
         "o": {
@@ -3819,9 +3819,9 @@
       "ddd": 0,
       "ind": 21,
       "ty": 2,
-      "nm": "Avatar 31",
+      "nm": "Girl.png",
       "parent": 22,
-      "refId": "Avatar 12.png",
+      "refId": "Girl.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -4368,9 +4368,9 @@
       "ddd": 0,
       "ind": 24,
       "ty": 2,
-      "nm": "Avatar 22",
+      "nm": "PhoneMan.png",
       "parent": 25,
-      "refId": "Avatar 09.png",
+      "refId": "PhoneMan.png",
       "sr": 1,
       "ks": {
         "o": {
@@ -6011,7 +6011,7 @@
       "ty": 2,
       "nm": "Avatar 25",
       "parent": 34,
-      "refId": "SmileMan.png",
+      "refId": "SmileMan.jpeg",
       "sr": 1,
       "ks": {
         "o": {
@@ -6560,7 +6560,7 @@
       "ty": 2,
       "nm": "Avatar 26",
       "parent": 37,
-      "refId": "Man.png",
+      "refId": "Man.jpeg",
       "sr": 1,
       "ks": {
         "o": {
@@ -7107,9 +7107,9 @@
       "ddd": 0,
       "ind": 39,
       "ty": 2,
-      "nm": "Avatar 27",
+      "nm": "Girl.png",
       "parent": 40,
-      "refId": "Avatar 12.png",
+      "refId": "Girl.png",
       "sr": 1,
       "ks": {
         "o": {

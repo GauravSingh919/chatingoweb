@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Faq from "./Faq";
 import FlyingText from "./FlyingText";
+import LottieVideoPlayer from "./LottieVideoPlayer";
 
 const hexWithAlpha = (hex, alpha) => {
   return `${hex}${Math.round(alpha * 255)
@@ -35,9 +36,9 @@ const CardAnimation = () => {
     scrollYProgress,
     [0, 0.5, 1],
     [
-      hexWithAlpha("#000000", 1),
-      hexWithAlpha("#000000", 1),
-      hexWithAlpha("#000000", 1),
+      hexWithAlpha("#0A0A0A", 1),
+      hexWithAlpha("#0A0A0A", 1),
+      hexWithAlpha("#0A0A0A", 1),
     ]
   );
 
@@ -53,8 +54,8 @@ const CardAnimation = () => {
       id: 1,
       title: "Influencer Driven",
       description: "This is the first card in our stack animation.",
-      color: "from-[#00BDB7] to-[#00BDB7]",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+      color: "from-[#0A0A0A] to-[#0A0A0A]",
+      videoUrl: "/lottieanimation/card.json",
     },
     {
       id: 2,
@@ -145,11 +146,11 @@ const CardAnimation = () => {
 
   return (
     <div ref={containerRef} className="relative">
-      <div className="lg:h-[1vh] bg-black"></div>
+      <div className="lg:h-[1vh] bg-[#0a0a0a]"></div>
 
       <motion.div
         ref={targetRef}
-        className="min-h-[320vh] lg:min-h-[350vh] transition-all duration-300"
+        className="min-h-[300vh] lg:min-h-[350vh] transition-all duration-300"
         style={{ backgroundColor: bgColor }}
       >
         <div className="relative min-h-[300vh]">
@@ -172,33 +173,33 @@ const CardAnimation = () => {
             return (
               <div
                 key={card.id}
-                className="sticky -top-14 mx-auto w-[90%] max-w-6xl"
+                className="sticky -top-14 mx-auto w-[90%] max-w-7xl"
                 style={getCardStyle(index)}
                 ref={cardRef}
               >
                 <div
-                  className={`h-screen rounded-[40px] backdrop-blur-md border border-white/20 
+                  className={`h-[70vh] lg:h-screen overflow-hidden rounded-[40px] backdrop-blur-md border border-white/20 
                     shadow-2xl transition-all duration-300 ease-out
-                    bg-gradient-to-br ${card.color}`}
+                    bg-gradient-to-br ${card.color}`} 
                 >
-                  <div className="container mx-auto p-5 lg:p-8 h-full">
-                    <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-0 lg:justify-between h-full">
+                  <div className="container mx-auto lg:h-full">
+                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 lg:justify-between h-full">
                       <motion.div
-                        className="lg:basis-[45%] space-y-2 lg:space-y-6 pt-20 lg:pt-0"
+                        className="md:basis-[50%] space-y-2 lg:space-y-6 pt-20 "
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.3 }}
                         variants={textRevealVariants}
                       >
-                        <div className="space-y-2 lg:space-y-4">
+                        <div className="space-y-2 lg:space-y-4  p-5 lg:p-8 lg:pl-20 ">
                           <motion.h1
-                            className="text-3xl lg:text-6xl font-bold text-white leading-tight"
+                            className="text-6xl lg:text-4xl 2xl:text-[90px] font-bold text-white  text-start"
                             variants={childVariants}
                           >
                             {card.title}
                           </motion.h1>
                           <motion.p
-                            className="text-gray-200 text-base lg:text-4xl "
+                            className="text-gray-200  text-2xl lg:text-4xl "
                             variants={childVariants}
                           >
                             {card.description}
@@ -229,7 +230,7 @@ const CardAnimation = () => {
                       </motion.div>
 
                       <motion.div
-                        className="lg:basis-[45%] w-full h-full flex items-center justify-center"
+                        className="lg:basis-[50%] w-full lg:h-full flex items-center justify-center"
                         initial={{
                           opacity: 0,
                           x: 50,
@@ -243,8 +244,8 @@ const CardAnimation = () => {
                           delay: 0.2,
                         }}
                       >
-                        <div className="relative w-full h-[60vh] rounded-3xl overflow-hidden bg-white shadow-2xl">
-                          <video
+                        <div className="relative w-full  rounded-3xl overflow-hidden  pb-20  overflow-y-hidden">
+                          {/* <video
                             ref={(el) => (videoRefs.current[index] = el)}
                             muted
                             playsInline
@@ -253,7 +254,8 @@ const CardAnimation = () => {
                           >
                             <source src={card.videoUrl} type="video/mp4" />
                             Your browser does not support the video tag.
-                          </video>
+                          </video> */}
+                          <LottieVideoPlayer path={card.videoUrl} />
                         </div>
                       </motion.div>
                     </div>
@@ -264,8 +266,6 @@ const CardAnimation = () => {
           })}
         </div>
       </motion.div>
-
-    
     </div>
   );
 };

@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Zap Zap",
-  description: "Zap Zap - Innovate, Create, Transform for influncer",
+  title: "Chatingo",
+  description: "Chatingo - Innovate, Create, Transform for influncer",
 };
 
 export default function RootLayout({ children }) {

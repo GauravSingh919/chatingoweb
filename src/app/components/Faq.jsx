@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaInstagram, FaFacebook, FaXTwitter, FaTiktok } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 const socialLinks = [
   {
     name: "Facebook",
@@ -29,9 +30,9 @@ const socialLinks = [
 
 const faqData = [
   {
-    question: "What social platforms can ZapZap connect with?",
+    question: "What social platforms can Chatingo connect with?",
     answer:
-      "Right now, ZapZap works seamlessly with Instagram DMs and WhatsApp — where most influencers connect with their fans. We're working on adding more platforms soon.",
+      "Right now, Chatingo works seamlessly with Instagram DMs and WhatsApp — where most influencers connect with their fans. We're working on adding more platforms soon.",
   },
   {
     question: "What if I need help setting things up or troubleshooting?",
@@ -40,14 +41,14 @@ const faqData = [
   },
   {
     question:
-      "Is ZapZap suitable for agencies managing multiple influencer accounts?",
+      "Is Chatingo suitable for agencies managing multiple influencer accounts?",
     answer:
-      "Absolutely. ZapZap is built to scale, letting agencies manage multiple clients, campaigns, and funnels from one dashboard without hassle.",
+      "Absolutely. Chatingo is built to scale, letting agencies manage multiple clients, campaigns, and funnels from one dashboard without hassle.",
   },
   {
-    question: "Can ZapZap help me track ROI on my campaigns?",
+    question: "Can Chatingo help me track ROI on my campaigns?",
     answer:
-      "Yes! ZapZap provides detailed revenue reports so you can see exactly how much each campaign is making and optimize for better profits.",
+      "Yes! Chatingo provides detailed revenue reports so you can see exactly how much each campaign is making and optimize for better profits.",
   },
 ];
 
@@ -71,13 +72,13 @@ const Faq = () => {
       }}
     >
       {/* Animated header */}
-      <div
+      {/* <div
         className="text-7xl text-center py-5 lg:py-10 
                       bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent
                       animate-pulse"
       >
         Let's goooo...
-      </div>
+      </div> */}
 
       {/* Social links section with hover effects */}
       <div className="py-10 flex flex-col md:flex-row gap-4 justify-between items-center socials">
@@ -144,16 +145,20 @@ const Faq = () => {
               className={`transition-all duration-500 text-lg sm:text-sm
                          ${
                            openIndex === index
-                             ? "rotate-180 text-white scale-110"
-                             : "rotate-0 text-gray-400 hover:text-white hover:scale-110"
+                             ? " text-white scale-110"
+                             : " text-gray-400 hover:text-white hover:scale-110"
                          }`}
             >
-              ↑
+              {openIndex === index ? (
+                <ChevronUpIcon className="w-6 h-6" />
+              ) : (
+                <ChevronDownIcon className="w-6 h-6" />
+              )}
             </span>
           </button>
 
           <div
-            className={`px-6 text-sm sm:text-xs text-gray-300 transition-all duration-700 ease-out
+            className={`px-6 text-sm  text-gray-300 transition-all duration-700 ease-out
                        ${
                          openIndex === index
                            ? "max-h-[400px] py-4 opacity-100 transform translate-y-0"
