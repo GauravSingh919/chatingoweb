@@ -9,6 +9,7 @@ import Faq from "./components/Faq";
 import JoinButton from "./components/buttons/JoinButton";
 import MobileBanner from "./components/MobileBanner";
 import FlyingText from "./components/FlyingText";
+import FormSection from "./components/FormSection";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,12 +30,15 @@ export default function Home() {
       ) : (
         <div>
           <div className="bg-[#0a0a0a]">
-            <Banner />
-            <MobileBanner />
-            <CardAnimation />
-            <FlyingText />
+            <div className="relative">
+              <Banner />
+              <MobileBanner />
+              <CardAnimation />
+              <FlyingText />
+              <JoinButton />
+            </div>
+            <FormSection />
             <Faq />
-            <JoinButton />
           </div>
         </div>
       )}

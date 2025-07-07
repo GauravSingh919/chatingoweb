@@ -14,22 +14,10 @@ const hexWithAlpha = (hex, alpha) => {
 const CardAnimation = () => {
   const targetRef = useRef(null);
   const containerRef = useRef(null);
-  const faqSectionRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end end"],
-  });
-
-  const { scrollYProgress: containerScrollProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // FAQ section scroll progress for upward clamping animation
-  const { scrollYProgress: faqScrollProgress } = useScroll({
-    target: faqSectionRef,
-    offset: ["start end", "end start"],
   });
 
   const bgColor = useTransform(
@@ -42,38 +30,84 @@ const CardAnimation = () => {
     ]
   );
 
-  // Transform for FAQ to clamp upward over the fixed last card
-  // const faqTranslateY = useTransform(
-  //   faqScrollProgress,
-  //   [0, 0.3, 1],
-  //   ["100vh", "0vh", "0vh"]
-  // );
-
   const cards = [
     {
       id: 1,
-      title: "Influencer Driven",
-      description: "This is the first card in our stack animation.",
+      titleParts: [
+        { text: "Increase your Insta", color: "text-white" },
+        { text: " Followers by 60%", color: "text-white" },
+        { text: " Month on Month", color: "text-[#808080]" },
+      ],
+      descriptionParts: [
+        { text: "Chatingo ", color: "text-[#E4EF31]" },
+        { text: "increases your profiles reach by", color: "text-gray-400" },
+        { text: " triggering maximum engagement on ", color: "text-gray-200" },
+        { text: "Reels, Posts, Stories and Live", color: "text-white" },
+      ],
       color: "from-[#0A0A0A] to-[#0A0A0A]",
-      videoUrl: "/lottieanimation/card.json",
+      videoUrl: "/videos/video1.webm",
     },
     {
       id: 2,
-      title: "Second Card",
-      description: "This is the second card that stacks above the first.",
+      titleParts: [
+        { text: "Turn every comment", color: "text-white" },
+        { text: " into a", color: "text-white" },
+        { text: " potential sale", color: "text-[#E4EF31]" },
+      ],
+      descriptionParts: [
+        { text: "Chatingo’s ", color: "text-[#E4EF31]" },
+        { text: "Sentimental AI", color: "text-white" },
+        { text: " collects payments inside the DM by showing your ", color: "text-white" },
+        { text: "services or products", color: "text-[#E4EF31]" },
+        { text: " & also follow backs with interested leads.", color: "text-white" },
+      ],
       color: "from-[#FE4747] to-[#FE4747]",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+      videoUrl: "/videos/video1.webm",
     },
     {
       id: 3,
-      title: "Check cool Public Figure",
-      description: "This is the third card completing our deck.",
+      titleParts: [
+        { text: "Turn every Follower", color: "text-white" },
+        { text: " into a", color: "text-white" },
+        { text: " Global", color: "text-[#E4EF31]" },
+        { text: " Community", color: "text-white" },
+      ],
+      descriptionParts: [
+        { text: "Chatingo", color: "text-[#E4EF31]" },
+        { text: " has its own community space ", color: "text-white" },
+        { text: "where people can meet, teach, and learn from each other online. So build your ", color: "text-gray-200" },
+        { text: "community across the globe.", color: "text-[#E4EF31]" },
+      ],
       color: "from-[#FF801A] to-[#FF801A]",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+      videoUrl: "/videos/video1.webm",
+    },
+    {
+      id: 4,
+      titleParts: [
+        { text: "No more", color: "text-white" },
+        { text: " complicated brain rot", color: "text-white" },
+        { text: " Setups", color: "text-white" },
+      ],
+      descriptionParts: [
+        { text: "Chatingo", color: "text-[#E4EF31]" },
+        { text: " has the most easiest pick and drop automation builder for your instagram.", color: "text-white" },
+      ],
+      color: "from-[#00bdb7] to-[#00bdb7]",
+      videoUrl: "/videos/video1.webm",
     },
   ];
 
   const videoRefs = useRef([]);
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const getCardStyle = (index) => {
     const stackOffset = (cards.length - 1 - index) * 60;
@@ -84,65 +118,23 @@ const CardAnimation = () => {
   };
 
   const textRevealVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-      scale: 0.8,
-    },
+    hidden: { opacity: 0, y: 50, scale: 0.8 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.2,
-      },
+      transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.2 },
     },
   };
 
   const childVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-    },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
-
-  const buttonVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-      scale: 0.9,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const [isMobile, setIsMobile] = useState(true);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024); // you can adjust the breakpoint as needed
-    };
-    handleResize(); // set initially
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div ref={containerRef} className="relative">
@@ -173,64 +165,50 @@ const CardAnimation = () => {
             return (
               <div
                 key={card.id}
-                className="sticky -top-14 mx-auto w-[90%] max-w-7xl"
+                className="sticky -top-24  mx-auto w-[90%] max-w-7xl"
                 style={getCardStyle(index)}
                 ref={cardRef}
               >
                 <div
-                  className={`h-[70vh] lg:h-screen overflow-hidden rounded-[40px] backdrop-blur-md border border-white/20 
+                  className={`h-screen overflow-hidden rounded-[40px] backdrop-blur-md border border-white/20 
                     shadow-2xl transition-all duration-300 ease-out
-                    bg-gradient-to-br ${card.color}`} 
+                    bg-gradient-to-br ${card.color}`}
                 >
                   <div className="container mx-auto lg:h-full">
-                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 lg:justify-between h-full">
+                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 lg:justify-between h-full items-center xl:items-start">
                       <motion.div
-                        className="md:basis-[50%] space-y-2 lg:space-y-6 pt-20 "
+                        className="md:basis-[50%] space-y-2 lg:space-y-6 pt-10 lg:pt-20"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.3 }}
                         variants={textRevealVariants}
                       >
-                        <div className="space-y-2 lg:space-y-4  p-5 lg:p-8 lg:pl-20 ">
+                        <div className="space-y-2 lg:space-y-4 p-5 lg:p-8 lg:pl-10 xl:pl-20">
                           <motion.h1
-                            className="text-6xl lg:text-4xl 2xl:text-[90px] font-bold text-white  text-start"
+                            className="text-2xl md:text-4xl lg:text-6xl 2xl:text-7xl font-bold text-start AvantGarde-Bold"
                             variants={childVariants}
                           >
-                            {card.title}
+                            {card.titleParts.map((part, idx) => (
+                              <span key={idx} className={part.color}>
+                                {part.text}
+                              </span>
+                            ))}
                           </motion.h1>
                           <motion.p
-                            className="text-gray-200  text-2xl lg:text-4xl "
+                            className="text-base md:text-2xl AvantGarde-Bold font-bold lg:pt-5"
                             variants={childVariants}
                           >
-                            {card.description}
+                            {card.descriptionParts.map((part, idx) => (
+                              <span key={idx} className={part.color}>
+                                {part.text}
+                              </span>
+                            ))}
                           </motion.p>
                         </div>
-
-                        {/* <motion.div
-                          className="flex gap-2 lg:gap-4"
-                          variants={childVariants}
-                        >
-                          <motion.button
-                            className="px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-medium transition-all duration-300 hover:scale-105"
-                            variants={buttonVariants}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            Learn More
-                          </motion.button>
-                          <motion.button
-                            className="px-6 py-3 border border-white/30 hover:border-white/50 rounded-full text-white font-medium transition-all duration-300 hover:bg-white/10"
-                            variants={buttonVariants}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            Explore
-                          </motion.button>
-                        </motion.div> */}
                       </motion.div>
 
                       <motion.div
-                        className="lg:basis-[50%] w-full lg:h-full flex items-center justify-center"
+                        className="lg:basis-[50%] w-full flex items-center justify-center lg:pt-20"
                         initial={{
                           opacity: 0,
                           x: 50,
@@ -244,18 +222,17 @@ const CardAnimation = () => {
                           delay: 0.2,
                         }}
                       >
-                        <div className="relative w-full  rounded-3xl overflow-hidden  pb-20  overflow-y-hidden">
-                          {/* <video
+                        <div className="relative w-full rounded-3xl overflow-hidden">
+                          <video
                             ref={(el) => (videoRefs.current[index] = el)}
                             muted
                             playsInline
                             preload="auto"
-                            className="w-full h-full object-cover"
+                            className="w-full sm:h-[40vh] lg:h-[60vh] xl:h-[80vh] object-cover lg:object-contain"
                           >
-                            <source src={card.videoUrl} type="video/mp4" />
+                            <source src={card.videoUrl} type="video/webm" />
                             Your browser does not support the video tag.
-                          </video> */}
-                          <LottieVideoPlayer path={card.videoUrl} />
+                          </video>
                         </div>
                       </motion.div>
                     </div>

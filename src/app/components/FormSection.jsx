@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
 
-export default function ModernGlowingForm({ setShowForm }) {
+export default function FormSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,13 +14,13 @@ export default function ModernGlowingForm({ setShowForm }) {
   });
 
   const [isVisible, setIsVisible] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
 
-  // Trigger entrance animation immediately
+  // Trigger entrance animation on mount
   useEffect(() => {
-    requestAnimationFrame(() => {
+    const timer = setTimeout(() => {
       setIsVisible(true);
-    });
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const validate = () => {
@@ -62,21 +61,8 @@ export default function ModernGlowingForm({ setShowForm }) {
     console.log("Submitted:", formData);
   };
 
-  const handleClose = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      setShowForm(false);
-    }, 300); // Reduced to match animation duration
-  };
-
   return (
-    <div
-      className={`fixed inset-0 z-50 flex items-center justify-center px-4 transition-all duration-500 ease-out ${
-        isVisible && !isClosing
-          ? "opacity-100 backdrop-blur-sm bg-[#0a0a0a]/50"
-          : "opacity-0 backdrop-blur-none bg-[#0a0a0a]/0"
-      }`}
-    >
+    <section data-form-section  className="py-10 px-4 min-h-screen  flex items-center justify-center relative overflow-hidden">
       <style jsx>{`
         @keyframes border-glow {
           0% {
@@ -130,21 +116,10 @@ export default function ModernGlowingForm({ setShowForm }) {
           }
         }
 
-        @keyframes slideOutDown {
-          0% {
-            transform: scale(1) translateY(0);
-            opacity: 1;
-          }
-          100% {
-            transform: scale(0.9) translateY(-40px);
-            opacity: 0;
-          }
-        }
-
         @keyframes fadeInStagger {
           0% {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(20px);
           }
           100% {
             opacity: 1;
@@ -152,14 +127,21 @@ export default function ModernGlowingForm({ setShowForm }) {
           }
         }
 
-        @keyframes fadeOutStagger {
-          0% {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
           }
-          100% {
-            opacity: 0;
+          50% {
             transform: translateY(-10px);
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 0.4;
+          }
+          50% {
+            opacity: 0.8;
           }
         }
 
@@ -169,53 +151,34 @@ export default function ModernGlowingForm({ setShowForm }) {
         }
 
         .form-container {
-          animation: ${isClosing
-            ? "slideOutDown 0.3s cubic-bezier(0.4, 0, 0.6, 1) forwards"
-            : isVisible
-            ? "slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards"
-            : "none"};
-        }
-
-        .content-enter {
-          animation: fadeInStagger 0.3s ease-out forwards;
-        }
-
-        .content-exit {
-          animation: fadeOutStagger 0.2s ease-out forwards;
+          animation: ${isVisible ? "slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards" : "none"};
         }
 
         .content-item {
           opacity: 0;
-        }
-
-        .content-item.animate-in {
-          animation: fadeInStagger 0.3s ease-out forwards;
-        }
-
-        .content-item.animate-out {
-          animation: fadeOutStagger 0.15s ease-out forwards;
+          animation: ${isVisible ? "fadeInStagger 0.6s ease-out forwards" : "none"};
         }
 
         .content-item:nth-child(1) {
-          animation-delay: ${isClosing ? "0s" : "0.1s"};
+          animation-delay: 0.2s;
         }
         .content-item:nth-child(2) {
-          animation-delay: ${isClosing ? "0s" : "0.15s"};
+          animation-delay: 0.3s;
         }
         .content-item:nth-child(3) {
-          animation-delay: ${isClosing ? "0s" : "0.2s"};
+          animation-delay: 0.4s;
         }
         .content-item:nth-child(4) {
-          animation-delay: ${isClosing ? "0s" : "0.25s"};
+          animation-delay: 0.5s;
         }
         .content-item:nth-child(5) {
-          animation-delay: ${isClosing ? "0s" : "0.3s"};
+          animation-delay: 0.6s;
         }
 
         .input-focus-glow:focus {
           box-shadow: 0 0 0 2px #00bdb780;
           border-color: #00bdb780;
-          transform: translateY(-1px);
+          transform: translateY(-2px);
         }
 
         .input-focus-glow {
@@ -223,7 +186,7 @@ export default function ModernGlowingForm({ setShowForm }) {
         }
 
         .submit-button {
-          background: #00bdb7;
+          background: linear-gradient(135deg, #00bdb7, #00a39d);
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
           overflow: hidden;
@@ -236,7 +199,7 @@ export default function ModernGlowingForm({ setShowForm }) {
           left: -100%;
           width: 100%;
           height: 100%;
-          background: #00bdb7;
+          background: linear-gradient(135deg, #00e6de, #00bdb7);
           transition: left 0.4s ease;
         }
 
@@ -245,60 +208,68 @@ export default function ModernGlowingForm({ setShowForm }) {
         }
 
         .submit-button:hover {
-          background: #00bdb7;
           transform: translateY(-2px);
-          box-shadow: 0 10px 20px #00bdb740;
+          box-shadow: 0 10px 25px #00bdb740;
         }
 
-        .close-button {
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .bg-orb {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(60px);
+          animation: float 6s ease-in-out infinite, pulse 4s ease-in-out infinite;
         }
 
-        .close-button:hover {
-          transform: scale(1.1) rotate(90deg);
-          background: rgba(255, 255, 255, 0.1);
-          border-color: rgba(255, 255, 255, 0.8);
+        .bg-orb-1 {
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(circle, #00bdb760, transparent);
+          top: 10%;
+          left: 10%;
+          animation-delay: 0s;
         }
 
-        .close-container {
-          opacity: 0;
-          animation: ${isClosing
-            ? "fadeOutStagger 0.15s ease-out forwards"
-            : isVisible
-            ? "fadeInStagger 0.3s ease-out 0.35s forwards"
-            : "none"};
+        .bg-orb-2 {
+          width: 200px;
+          height: 200px;
+          background: radial-gradient(circle, #fe474760, transparent);
+          top: 60%;
+          right: 15%;
+          animation-delay: 2s;
+        }
+
+        .bg-orb-3 {
+          width: 250px;
+          height: 250px;
+          background: radial-gradient(circle, #e4ef3160, transparent);
+          bottom: 10%;
+          left: 20%;
+          animation-delay: 4s;
         }
       `}</style>
 
-      <div className="w-full max-w-sm form-container">
-        <div className="relative rounded-2xl p-8 border-2 glow-border bg-neutral-900/95 backdrop-blur-lg">
-          <div
-            className={`text-center mb-6 content-item ${
-              isClosing ? "animate-out" : "animate-in"
-            }`}
-          >
-            <h2 className="text-2xl font-bold text-white mb-2">
+
+
+      <div className="w-full max-w-6xl relative z-10 form-container">
+        <div className="flex flex-col md:flex-row items-center relative rounded-2xl p-5 lg:p-10 border-2 glow-border ">
+          <div className="md:w-[50%] mb-8 content-item text-left">
+            <h2 className="text-4xl font-bold text-white mb-3 AvantGarde-Bold">
               Stay in the loop!
             </h2>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-400 text-base leading-relaxed AvantGarde-Bold">
               Get the good stuff before everyone else.
               <br />
               New features, drops, and creator hacks.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="w-full md:w-[50%] space-y-6">
             {/* Name */}
-            <div
-              className={`content-item ${
-                isClosing ? "animate-out" : "animate-in"
-              }`}
-            >
+            <div className="content-item">
               <input
                 type="text"
                 name="name"
                 autoComplete="off"
-                placeholder="Your name"
+                placeholder="Your name*"
                 value={formData.name}
                 onChange={handleChange}
                 className={`w-full px-4 py-3 bg-neutral-800/80 backdrop-blur-sm border ${
@@ -306,21 +277,17 @@ export default function ModernGlowingForm({ setShowForm }) {
                 } rounded-lg text-white placeholder-gray-400 focus:outline-none input-focus-glow`}
               />
               {errors.name && (
-                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                <p className="text-red-500 text-sm mt-2">{errors.name}</p>
               )}
             </div>
 
             {/* Email */}
-            <div
-              className={`content-item ${
-                isClosing ? "animate-out" : "animate-in"
-              }`}
-            >
+            <div className="content-item">
               <input
                 type="email"
                 name="email"
                 autoComplete="off"
-                placeholder="Your email*"
+                placeholder="Your Email*"
                 value={formData.email}
                 onChange={handleChange}
                 className={`w-full px-4 py-3 bg-neutral-800/80 backdrop-blur-sm border ${
@@ -328,23 +295,19 @@ export default function ModernGlowingForm({ setShowForm }) {
                 } rounded-lg text-white placeholder-gray-400 focus:outline-none input-focus-glow`}
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                <p className="text-red-500 text-sm mt-2">{errors.email}</p>
               )}
             </div>
 
             {/* Phone */}
-            <div
-              className={`content-item ${
-                isClosing ? "animate-out" : "animate-in"
-              }`}
-            >
+            <div className="content-item">
               <input
                 type="text"
                 name="phone"
                 inputMode="numeric"
                 pattern="\d*"
                 autoComplete="off"
-                placeholder="Your Phone Number"
+                placeholder="Your Phone Number*"
                 value={formData.phone}
                 onChange={(e) => {
                   const numeric = e.target.value.replace(/\D/g, "");
@@ -364,32 +327,20 @@ export default function ModernGlowingForm({ setShowForm }) {
                 } rounded-lg text-white placeholder-gray-400 focus:outline-none input-focus-glow`}
               />
               {errors.phone && (
-                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                <p className="text-red-500 text-sm mt-2">{errors.phone}</p>
               )}
             </div>
 
             <button
               type="submit"
               onClick={handleSubmit}
-              className={`w-full py-3 px-6 text-black hover:text-white font-semibold rounded-xl submit-button cursor-pointer content-item ${
-                isClosing ? "animate-out" : "animate-in"
-              }`}
+              className="w-full py-3 px-6 text-black hover:text-white font-semibold rounded-xl submit-button cursor-pointer content-item relative z-10"
             >
-              Submit
+              <span className="relative z-10">Submit</span>
             </button>
           </div>
         </div>
-
-        {/* Close Button */}
-        <div className="flex justify-center mt-6 close-container">
-          <button
-            onClick={handleClose}
-            className="text-white w-10 h-10 rounded-full flex items-center justify-center bg-transparent border border-white/30 hover:border-white/60 close-button cursor-pointer"
-          >
-            <X size={20} />
-          </button>
-        </div>
       </div>
-    </div>
+    </section>
   );
 }

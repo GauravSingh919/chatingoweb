@@ -14,7 +14,7 @@ const Banner = () => {
   const lastTextIndex = useRef(0);
 
   // Enhanced scroll texts with segment-level color control and proper spacing
-  const scrollTexts = [
+   const scrollTexts = [
     {
       text: "Chatingo",
       lines: [
@@ -22,76 +22,64 @@ const Banner = () => {
           {
             text: "Chatin",
             color: "text-white",
-            size: "text-6xl md:text-5xl lg:text-6xl xl:text-7xl",
+            size: "text-4xl md:text-5xl lg:text-6xl xl:text-8xl",
           },
           {
             text: "go",
-            color: "text-yellow-400",
-            size: "text-6xl md:text-5xl lg:text-6xl xl:text-7xl",
+            color: "text-[#E4EF31]",
+            size: "text-4xl md:text-5xl lg:text-6xl xl:text-8xl",
           },
         ],
         [
           {
-            text: "Go Live",
-            color: "text-gray-300",
-            size: "text-lg md:text-xl lg:text-2xl xl:text-3xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-lg md:text-xl lg:text-2xl xl:text-3xl",
-          },
-          {
-            text: "Posts",
-            color: "text-white",
-            size: "text-lg md:text-xl lg:text-2xl xl:text-3xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-lg md:text-xl lg:text-2xl xl:text-3xl",
-          },
-          {
-            text: "Reels",
-            color: "text-white",
-            size: "text-lg md:text-xl lg:text-2xl xl:text-3xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-lg md:text-xl lg:text-2xl xl:text-3xl",
-          },
-          {
-            text: "Stories",
-            color: "text-white",
-            size: "text-lg md:text-xl lg:text-2xl xl:text-3xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-lg md:text-xl lg:text-2xl xl:text-3xl",
+            text: "CREATE. GROW. CHAT. SELL",
+            color: "text-gray-400",
+            size: "text-lg md:text-xl lg:text-2xl xl:text-2xl",
           },
         ],
       ],
     },
     {
-      text: "Discover Innovation",
+      text: "We remove the Sh%t from ‘S’ales",
       lines: [
         [
           {
-            text: "Discover",
-            color: "text-green-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+            text: "We remove the",
+            color: "text-white",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
+          },
+        ],
+        [
+          {
+            text: "Sh%t",
+            color: "text-[#E4EF31]",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
           },
           {
             text: " ",
             color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
           },
           {
-            text: "Innovation",
-            color: "text-purple-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+            text: "from",
+            color: "text-white",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
+          },
+          {
+            text: " ",
+            color: "text-white",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
+          },
+
+          {
+            text: "‘S’",
+            color: "text-[#E4EF31]",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
+          },
+          {
+            text: "ales",
+            color: "text-white",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
           },
         ],
       ],
@@ -101,29 +89,33 @@ const Banner = () => {
       lines: [
         [
           {
-            text: "Create",
-            color: "text-orange-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+            text: "By turning your",
+            color: "text-white",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
+          },
+        ],
+        [
+          {
+            text: "Dm’s into a",
+            color: "text-white",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
           },
           {
             text: " ",
             color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
           },
           {
-            text: "Your",
-            color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+            text: "cash",
+            color: "text-[#E4EF31]",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
           },
+        ],
+        [
           {
-            text: " ",
-            color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: "Future",
-            color: "text-cyan-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+            text: "machine",
+            color: "text-[#E4EF31]",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-5xl",
           },
         ],
       ],
@@ -133,109 +125,113 @@ const Banner = () => {
       lines: [
         [
           {
-            text: "Sell Products",
-            color: "text-yellow-400",
+            text: "as now you can...",
+            color: "text-[#808080]",
+            size: "text-base md:text-lg 2xl:text-xl",
+          },
+        ],
+        [
+          {
+            text: "Sell",
+            color: "text-white",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+          },
+          {
+            text: " ",
+            color: "text-[#FF801A]",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+          },
+          {
+            text: "Products",
+            color: "text-[#E4EF31]",
             size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
           },
         ],
         [
           {
-            text: "Share Ideas",
-            color: "text-green-400",
+            text: "Sell",
+            color: "text-white",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+          },
+          {
+            text: " ",
+            color: "text-[#00BDB7]",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+          },
+          {
+            text: "Services",
+            color: "text-[#E4EF31]",
             size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
           },
         ],
         [
           {
-            text: "Showcase Talent",
-            color: "text-pink-400",
+            text: "Sell",
+            color: "text-white",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+          },
+          {
+            text: " ",
+            color: "text-[#00BDB7]",
+            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+          },
+          {
+            text: "Anything",
+            color: "text-[#E4EF31]",
             size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
           },
         ],
       ],
     },
+    // {
+    //   text: "cause Chatingo’s ai message feature is the most advance growth & sales agent",
+    //   lines: [
+    //     [
+    //       {
+    //         text: "cause",
+    //         color: "text-gray-600",
+    //         size: "text-base lg:text-3xl xl:text-2xl",
+    //       },
+    //       {
+    //         text: " ",
+    //         color: "text-white",
+    //         size: "text-xl md:text-2xl lg:text-3xl xl:text-2xl",
+    //       },
+    //       {
+    //         text: "Chatingo’s",
+    //         color: "text-[#E4EF31]",
+    //         size: "text-base lg:text-3xl xl:text-2xl",
+    //       },
+    //       {
+    //         text: " ",
+    //         color: "text-white",
+    //         size: "text-base lg:text-3xl xl:text-2xl",
+    //       },
+    //       {
+    //         text: "ai message",
+    //         color: "text-white",
+    //         size: "text-base lg:text-lg xl:text-2xl",
+    //       },
+    //     ],
+    //     [
+    //       {
+    //         text: "feature is the most advance",
+    //         color: "text-white",
+    //         size: "text-base lg:text-lg xl:text-2xl",
+    //       },
+    //     ],
+    //     [
+    //       {
+    //         text: "growth & sales agent",
+    //         color: "text-white",
+    //         size: "text-base lg:text-lg xl:text-2xl",
+    //       },
+    //     ],
+    //   ],
+    // },
     {
-      text: "Welcome to the industry and checkout our latest features",
-      lines: [
-        [
-          {
-            text: "Welcome",
-            color: "text-emerald-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: "to",
-            color: "text-emerald-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: "the",
-            color: "text-emerald-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-        ],
-        [
-          {
-            text: "industry",
-            color: "text-emerald-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-        ],
-        [
-          {
-            text: "checkout",
-            color: "text-indigo-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: "our",
-            color: "text-indigo-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: "latest",
-            color: "text-indigo-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-          {
-            text: " ",
-            color: "text-white",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-        ],
-        [
-          {
-            text: "features",
-            color: "text-rose-400",
-            size: "text-xl md:text-2xl lg:text-3xl xl:text-4xl",
-          },
-        ],
-      ],
+      text: "",
+      lines: [],
     },
     {
       text: "",
@@ -396,7 +392,7 @@ const calculateResponsiveScale = () => {
         >
           <div className="text-center px-4 sm:px-6 md:px-10 max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-6xl">
             <h1
-              className="text-center break-words text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold drop-shadow-2xl transition-all duration-300 ease-out leading-tight sm:leading-snug md:leading-normal"
+              className="AvantGarde-Bold text-center break-words text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold drop-shadow-2xl transition-all duration-300 ease-out"
               style={{
                 opacity: textOpacity,
                 transform: `scale(${textZoomScale})`,

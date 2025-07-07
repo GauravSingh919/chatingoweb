@@ -11,7 +11,10 @@ const FlyingText = () => {
   });
 
   // Track screen width to apply responsive scaling
-  const [maxScale, setMaxScale] = useState(13); // default for large screens
+  const [maxScale, setMaxScale] = useState(13);
+
+  const [fontSize, setFontSize] = useState("5px");
+
 
   useEffect(() => {
     const updateScale = () => {
@@ -23,12 +26,22 @@ const FlyingText = () => {
       else if (width < 1440) setMaxScale(8);
       else if (width < 1536) setMaxScale(11);
       else setMaxScale(13);
+
+       // Font size setting
+    if (width < 300) setFontSize("5px");
+    else if (width < 480) setFontSize("5px");
+    else if (width < 768) setFontSize("8px");
+    else if (width < 1024) setFontSize("8px");
+    else if (width < 1440) setFontSize("12px");
+    else setFontSize("14px");
     };
 
     updateScale(); // on mount
     window.addEventListener("resize", updateScale); // on resize
     return () => window.removeEventListener("resize", updateScale);
   }, []);
+
+  
 
   // Apply responsive scale transform
   const scale = useTransform(scrollYProgress, [0, 0.9], [0.1, maxScale]);
@@ -42,7 +55,7 @@ const FlyingText = () => {
   const textY = useTransform(scrollYProgress, [0.7, 0.9], [0, 0]);
 
   return (
-    <div ref={sectionRef} className="relative h-[300vh] 2xl:h-[400vh] ">
+    <div ref={sectionRef} className="relative h-[300vh] xl:h-[350vh] 2xl:h-[400vh] ">
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <motion.div
           className="border-[2px] w-[160px] xl:w-[180px] h-[70px] flex items-center justify-center relative"
@@ -67,9 +80,9 @@ const FlyingText = () => {
             }}
           >
             <motion.h1
-              className="text-white font-semibold leading-tight px-4 z-10 text-wrap"
+              className="text-white AvantGarde-Bold font-bold leading-tight px-4 z-10 text-wrap"
               style={{
-                fontSize: "clamp(9px, 1.2vw, 12px)",
+                fontSize: fontSize,
               }}
               initial={false}
               animate={{ opacity: 1 }}

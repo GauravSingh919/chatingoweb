@@ -8,21 +8,44 @@ import Thunder from "../../../../public/images/thunderr.png";
 const JoinSection = () => {
   const [showForm, setShowForm] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldHide, setShouldHide] = useState(false);
 
   useEffect(() => {
     // Trigger animation on mount
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 300); // Small delay for better effect
+    }, 300);
 
-    return () => clearTimeout(timer);
+    // Handle scroll to hide button when FormSection is visible
+    const handleScroll = () => {
+      const formSection = document.querySelector('[data-form-section]');
+      if (formSection) {
+        const formSectionTop = formSection.offsetTop;
+        const scrollPosition = window.scrollY + window.innerHeight;
+        
+        // Hide button when FormSection comes into view
+        if (scrollPosition >= formSectionTop + 100) {
+          setShouldHide(true);
+        } else {
+          setShouldHide(false);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
     <>
       {/* Floating Join Button */}
-      <div className={`fixed bottom-2 lg:bottom-5 left-1/2 transform -translate-x-1/2 bg-[#0A0A0A] rounded-full border border-[#3d3d3d] shadow-lg z-30 transition-all duration-700 ease-out ${
-        isVisible 
+      <div className={`fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-[#0A0A0A] rounded-full border border-[#3d3d3d] shadow-lg z-30 transition-all duration-700 ease-out ${
+        isVisible && !shouldHide
           ? 'translate-y-0 opacity-100' 
           : 'translate-y-12 opacity-0'
       }`}>

@@ -110,9 +110,9 @@ const Faq = () => {
 
       {/* FAQ Title with gradient */}
       <h2
-        className="text-center text-4xl sm:text-3xl font-semibold mb-10
+        className="text-center text-4xl lg:text-5xl font-semibold mb-10
                      bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent
-                     transform transition-all duration-500 hover:scale-105"
+                     transform transition-all duration-500 hover:scale-105 AvantGarde-Bold"
       >
         Frequently Asked Questions
       </h2>
@@ -125,7 +125,7 @@ const Faq = () => {
                      transition-all duration-500 overflow-hidden
                      hover:shadow-2xl hover:shadow-white/10
                      border border-gray-800/50 hover:border-gray-700/70
-                     transform hover:scale-[1.02] hover:-translate-y-1"
+                     transform hover:scale-[1.02] hover:-translate-y-1 max-w-5xl mx-auto"
           style={{
             boxShadow:
               openIndex === index
@@ -134,15 +134,15 @@ const Faq = () => {
           }}
         >
           <button
-            className="w-full text-left flex justify-between items-center px-6 py-5 text-xl sm:text-base font-semibold cursor-pointer
+            className="w-full text-left flex justify-between items-center px-6 py-5  sm:text-base font-semibold cursor-pointer
                        transition-all duration-300 hover:bg-gradient-to-r hover:from-[#1a1a1a] hover:to-[#202020]"
             onClick={() => toggleFAQ(index)}
           >
-            <span className="transition-colors duration-300 hover:text-gray-200">
+            <span className="transition-colors duration-300 hover:text-gray-200 AvantGarde-Bold text-lg md:text-xl lg:text-2xl">
               {faq.question}
             </span>
             <span
-              className={`transition-all duration-500 text-lg sm:text-sm
+              className={`transition-all duration-500  sm:text-sm
                          ${
                            openIndex === index
                              ? " text-white scale-110"
@@ -165,7 +165,7 @@ const Faq = () => {
                            : "max-h-0 overflow-hidden py-0 opacity-0 transform -translate-y-2"
                        }`}
           >
-            <div className="leading-relaxed">{faq.answer}</div>
+            <div className="leading-relaxed AvantGarde-Bold">{faq.answer}</div>
           </div>
         </div>
       ))}
