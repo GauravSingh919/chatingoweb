@@ -12,15 +12,13 @@ const FlyingText = () => {
 
   // Track screen width to apply responsive scaling
   const [maxScale, setMaxScale] = useState(13);
-
   const [fontSize, setFontSize] = useState("5px");
-
 
   useEffect(() => {
     const updateScale = () => {
       const width = window.innerWidth;
       if (width < 300) setMaxScale(2);
-      else if (width < 480) setMaxScale(4);
+      else if (width < 480) setMaxScale(7);
       else if (width < 768) setMaxScale(6);
       else if (width < 1024) setMaxScale(8);
       else if (width < 1440) setMaxScale(8);
@@ -40,8 +38,6 @@ const FlyingText = () => {
     window.addEventListener("resize", updateScale); // on resize
     return () => window.removeEventListener("resize", updateScale);
   }, []);
-
-  
 
   // Apply responsive scale transform
   const scale = useTransform(scrollYProgress, [0, 0.9], [0.1, maxScale]);
@@ -92,8 +88,10 @@ const FlyingText = () => {
                 delay: 0.2,
               }}
             >
-              Let’s make Chatin
-              <span className="text-[#E4EF31]">go.</span> Together.
+              <span className="block ">Let's Make</span>
+              <span className="block sm:inline sm:ml-1">
+                Chatin<span className="text-[#E4EF31]">go.</span> Together.
+              </span>
             </motion.h1>
           </motion.div>
         </motion.div>

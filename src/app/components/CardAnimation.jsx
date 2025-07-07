@@ -165,7 +165,7 @@ const CardAnimation = () => {
             return (
               <div
                 key={card.id}
-                className="sticky -top-24  mx-auto w-[90%] max-w-7xl"
+                className="sticky -top-28  mx-auto w-[90%] max-w-7xl"
                 style={getCardStyle(index)}
                 ref={cardRef}
               >
@@ -185,7 +185,7 @@ const CardAnimation = () => {
                       >
                         <div className="space-y-2 lg:space-y-4 p-5 lg:p-8 lg:pl-10 xl:pl-20">
                           <motion.h1
-                            className="text-2xl md:text-4xl lg:text-6xl 2xl:text-7xl font-bold text-start AvantGarde-Bold"
+                            className="text-3xl lg:text-6xl 2xl:text-7xl font-bold text-start AvantGarde-Bold"
                             variants={childVariants}
                           >
                             {card.titleParts.map((part, idx) => (
@@ -195,7 +195,7 @@ const CardAnimation = () => {
                             ))}
                           </motion.h1>
                           <motion.p
-                            className="text-base md:text-2xl AvantGarde-Bold font-bold lg:pt-5"
+                            className="text-lg lg:text-2xl AvantGarde-Bold font-bold lg:pt-5"
                             variants={childVariants}
                           >
                             {card.descriptionParts.map((part, idx) => (
@@ -228,7 +228,7 @@ const CardAnimation = () => {
                             muted
                             playsInline
                             preload="auto"
-                            className="w-full sm:h-[40vh] lg:h-[60vh] xl:h-[80vh] object-cover lg:object-contain"
+                            className="w-full h-[32vh] md:h-[50vh] lg:h-[60vh] xl:h-[70vh] object-contain"
                           >
                             <source src={card.videoUrl} type="video/webm" />
                             Your browser does not support the video tag.

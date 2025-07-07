@@ -231,10 +231,6 @@ const Banner = () => {
       text: "",
       lines: [],
     },
-    {
-      text: "",
-      lines: [],
-    },
   ];
 
   const handleScroll = useCallback(() => {

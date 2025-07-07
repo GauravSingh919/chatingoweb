@@ -250,7 +250,7 @@ export default function FormSection() {
 
 
       <div className="w-full max-w-6xl relative z-10 form-container">
-        <div className="flex flex-col md:flex-row items-center relative rounded-2xl p-5 lg:p-10 border-2 glow-border ">
+        <div className="flex flex-col md:flex-row items-center relative rounded-2xl px-5 py-10 lg:px-10 lg:py-16 border-2 glow-border ">
           <div className="md:w-[50%] mb-8 content-item text-left">
             <h2 className="text-4xl font-bold text-white mb-3 AvantGarde-Bold">
               Stay in the loop!
