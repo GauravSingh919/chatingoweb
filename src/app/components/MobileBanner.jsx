@@ -1,7 +1,5 @@
 "use client";
-import { Player } from "@lottiefiles/react-lottie-player";
 import { useState, useEffect, useCallback, useRef } from "react";
-import CardAnimation from "./CardAnimation";
 import LottieVideoPlayer from "./LottieVideoPlayer";
 
 const Banner = () => {

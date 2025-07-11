@@ -1,9 +1,8 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import Faq from "./Faq";
-import FlyingText from "./FlyingText";
 import LottieVideoPlayer from "./LottieVideoPlayer";
+import { CheckIcon, CrossIcon } from "lucide-react";
 
 const hexWithAlpha = (hex, alpha) => {
   return `${hex}${Math.round(alpha * 255)
@@ -45,7 +44,7 @@ const CardAnimation = () => {
         { text: "Reels, Posts, Stories and Live", color: "text-white" },
       ],
       color: "from-[#0A0A0A] to-[#0A0A0A]",
-      videoUrl: "/videos/video1.webm",
+      videoUrl1: "/videos/video1.webm",
     },
     {
       id: 2,
@@ -57,12 +56,18 @@ const CardAnimation = () => {
       descriptionParts: [
         { text: "Chatingo’s ", color: "text-[#E4EF31]" },
         { text: "Sentimental AI", color: "text-white" },
-        { text: " collects payments inside the DM by showing your ", color: "text-white" },
+        {
+          text: " collects payments inside the DM by showing your ",
+          color: "text-white",
+        },
         { text: "services or products", color: "text-[#E4EF31]" },
-        { text: " & also follow backs with interested leads.", color: "text-white" },
+        {
+          text: " & also follow backs with interested leads.",
+          color: "text-white",
+        },
       ],
       color: "from-[#FE4747] to-[#FE4747]",
-      videoUrl: "/videos/video1.webm",
+      videoUrl1: "/videos/video2.webm",
     },
     {
       id: 3,
@@ -75,11 +80,13 @@ const CardAnimation = () => {
       descriptionParts: [
         { text: "Chatingo", color: "text-[#E4EF31]" },
         { text: " has its own community space ", color: "text-white" },
-        { text: "where people can meet, teach, and learn from each other online. So build your ", color: "text-gray-200" },
+        {
+          text: "where people can meet, teach, and learn from each other online. So build your ",
+          color: "text-gray-200",
+        },
         { text: "community across the globe.", color: "text-[#E4EF31]" },
       ],
       color: "from-[#FF801A] to-[#FF801A]",
-      videoUrl: "/videos/video1.webm",
     },
     {
       id: 4,
@@ -90,10 +97,14 @@ const CardAnimation = () => {
       ],
       descriptionParts: [
         { text: "Chatingo", color: "text-[#E4EF31]" },
-        { text: " has the most easiest pick and drop automation builder for your instagram.", color: "text-white" },
+        {
+          text: " has the most easiest pick and drop automation builder for your instagram.",
+          color: "text-white",
+        },
       ],
       color: "from-[#00bdb7] to-[#00bdb7]",
-      videoUrl: "/videos/video1.webm",
+      videoUrl1: "/videos/video4.webm",
+      videoUrl2: "/videos/video5.webm",
     },
   ];
 
@@ -151,21 +162,20 @@ const CardAnimation = () => {
             const isInView = useInView(cardRef, { amount: 0.6, once: false });
 
             useEffect(() => {
+              if (card.id === 4 || card.id === 3) return;
               const video = videoRefs.current[index];
-              if (video) {
-                if (isInView) {
-                  video.play().catch(() => {});
-                } else {
-                  video.pause();
-                  video.currentTime = 0;
-                }
+              if (video && isInView) {
+                video.play().catch(() => {});
+              } else if (video) {
+                video.pause();
+                video.currentTime = 0;
               }
             }, [isInView]);
 
             return (
               <div
                 key={card.id}
-                className="sticky -top-28  mx-auto w-[90%] max-w-7xl"
+                className="sticky -top-28 mx-auto w-[90%] max-w-7xl"
                 style={getCardStyle(index)}
                 ref={cardRef}
               >
@@ -175,17 +185,17 @@ const CardAnimation = () => {
                     bg-gradient-to-br ${card.color}`}
                 >
                   <div className="container mx-auto lg:h-full">
-                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 lg:justify-between h-full items-center xl:items-start">
+                    <div className="flex flex-col lg:flex-row  gap-5 lg:gap-0 lg:justify-between h-full items-center xl:items-start">
                       <motion.div
-                        className="md:basis-[50%] space-y-2 lg:space-y-6 pt-10 lg:pt-20"
+                        className={`md:basis-[50%] space-y-2 lg:space-y-6 pt-10 lg:pt-20`}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.3 }}
                         variants={textRevealVariants}
                       >
-                        <div className="space-y-2 lg:space-y-4 p-5 lg:p-8 lg:pl-10 xl:pl-20">
+                        <div className="space-y-2 lg:space-y-4 p-5 lg:p-8 lg:pl-10 xl:pl-16">
                           <motion.h1
-                            className="text-3xl lg:text-6xl 2xl:text-7xl font-bold text-start AvantGarde-Bold"
+                            className="text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold text-start AvantGarde-Bold"
                             variants={childVariants}
                           >
                             {card.titleParts.map((part, idx) => (
@@ -195,7 +205,7 @@ const CardAnimation = () => {
                             ))}
                           </motion.h1>
                           <motion.p
-                            className="text-lg lg:text-2xl AvantGarde-Bold font-bold lg:pt-5"
+                            className="text-lg md:text-2xl AvantGarde-Bold font-bold lg:pt-5"
                             variants={childVariants}
                           >
                             {card.descriptionParts.map((part, idx) => (
@@ -208,7 +218,9 @@ const CardAnimation = () => {
                       </motion.div>
 
                       <motion.div
-                        className="lg:basis-[50%] w-full flex items-center justify-center lg:pt-20"
+                        className={`lg:basis-[50%] w-full flex items-center justify-center ${
+                          card.id >= 3 ? "pt-0" : " lg:pt-20"
+                        }`}
                         initial={{
                           opacity: 0,
                           x: 50,
@@ -223,16 +235,79 @@ const CardAnimation = () => {
                         }}
                       >
                         <div className="relative w-full rounded-3xl overflow-hidden">
-                          <video
-                            ref={(el) => (videoRefs.current[index] = el)}
-                            muted
-                            playsInline
-                            preload="auto"
-                            className="w-full h-[32vh] md:h-[50vh] lg:h-[60vh] xl:h-[70vh] object-contain"
-                          >
-                            <source src={card.videoUrl} type="video/webm" />
-                            Your browser does not support the video tag.
-                          </video>
+                          {card.id === 4 ? (
+                            <div className="flex flex-col items-center lg:gap-5 lg:mt-10">
+                              <div className="relative">
+                                <video
+                                  ref={(el) =>
+                                    (videoRefs.current[`${index}-1`] = el)
+                                  }
+                                  controls
+                                  preload="auto"
+                                  className="w-[80%] mx-auto lg:w-[80%] lg:max-w-[700px] rounded-2xl border-[8px] border-red-500"
+                                >
+                                  <source
+                                    src={card.videoUrl1}
+                                    type="video/webm"
+                                  />
+                                </video>
+                                <div className="flex justify-center items-center ">
+                                  <div className="bg-red-500 -top-5 p-5 rounded-full relative">
+                                    <div className="absolute top-2 right-2.5">
+                                      <CrossIcon className="w-5 h-5 text-white rotate-45 fill-white" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="relative">
+                                <video
+                                  ref={(el) =>
+                                    (videoRefs.current[`${index}-2`] = el)
+                                  }
+                                  controls
+                                  preload="auto"
+                                  className="w-[80%] mx-auto lg:w-[80%] lg:max-w-[700px] rounded-2xl border-[8px] border-green-500"
+                                >
+                                  <source
+                                    src={card.videoUrl2}
+                                    type="video/webm"
+                                  />
+                                </video>
+                                 <div className="flex justify-center items-center">
+                                  <div className="bg-green-500 -top-5 p-5 rounded-full relative">
+                                    <div className="absolute top-2 right-2.5">
+                                      <CheckIcon className="w-5 h-5 text-white" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ) : card.id === 3 ? (
+                            <>
+                              <div className=" h-[35vh]  sm:h-[40vh] md:h-[55vh]  lg:h-[90vh]">
+                                <LottieVideoPlayer path="/lottieanimation/card3desktop.json" className={'w-full'} />
+                              </div>
+                              {/* <div className="block lg:hidden relative -top-80 overflow-hidden">
+                                <LottieVideoPlayer path="/lottieanimation/card3mobile.json" />
+                              </div> */}
+                            </>
+                          ) : (
+                            <video
+                              ref={(el) => (videoRefs.current[index] = el)}
+                              muted
+                              loop={false}
+                              autoPlay={false}
+                              playsInline
+                              preload="auto"
+                              className={`w-full ${
+                                card.id <= 2
+                                  ? "h-[32vh] md:h-[50vh] lg:h-[60vh] xl:h-[70vh]"
+                                  : "h-[32vh] md:h-[55vh] lg:h-[65vh] xl:h-[90vh]"
+                              } object-contain rounded-2xl`}
+                            >
+                              <source src={card.videoUrl1} type="video/webm" />
+                            </video>
+                          )}
                         </div>
                       </motion.div>
                     </div>

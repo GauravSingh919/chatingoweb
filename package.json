@@ -9,13 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@lottiefiles/dotlottie-react": "^0.14.2",
-    "@lottiefiles/lottie-player": "^2.0.12",
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.22.0",
     "gsap": "^3.13.0",
-    "lottie-react": "^2.4.1",
     "lottie-web": "^5.13.0",
     "lucide-react": "^0.525.0",
     "motion": "^12.23.0",

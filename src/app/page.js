@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import LogoAnimation from "./components/LogoAnimation";
 import Banner from "./components/Banner";
 import CardAnimation from "./components/CardAnimation";
-import ReviewPills from "./components/ReviewPills";
-import LottieReviewPlayer from "./components/LottieReviewPlayer";
 import Faq from "./components/Faq";
 import JoinButton from "./components/buttons/JoinButton";
 import MobileBanner from "./components/MobileBanner";
@@ -15,10 +13,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate the loading time of the LogoAnimation
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 5000); // Adjust this time to match the duration of your LogoAnimation
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
