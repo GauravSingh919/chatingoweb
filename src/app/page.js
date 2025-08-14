@@ -1,13 +1,15 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import LogoAnimation from "./components/LogoAnimation";
-import Banner from "./components/Banner";
-import CardAnimation from "./components/CardAnimation";
-import Faq from "./components/Faq";
-import JoinButton from "./components/buttons/JoinButton";
-import MobileBanner from "./components/MobileBanner";
-import FlyingText from "./components/FlyingText";
-import FormSection from "./components/FormSection";
+import dynamic from "next/dynamic";
+
+const LogoAnimation = dynamic(() => import("./components/LogoAnimation"), { ssr: false });
+const Banner = dynamic(() => import("./components/Banner"), { ssr: false });
+const CardAnimation = dynamic(() => import("./components/CardAnimation"), { ssr: false });
+const Faq = dynamic(() => import("./components/Faq"), { ssr: false });
+const JoinButton = dynamic(() => import("./components/buttons/JoinButton"), { ssr: false });
+const MobileBanner = dynamic(() => import("./components/MobileBanner"), { ssr: false });
+const FlyingText = dynamic(() => import("./components/FlyingText"), { ssr: false });
+const FormSection = dynamic(() => import("./components/FormSection"), { ssr: false });
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
