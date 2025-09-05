@@ -4,6 +4,7 @@ import LogoAnimation from "./components/LogoAnimation";
 import Banner from "./components/Banner";
 import CardAnimation from "./components/CardAnimation";
 import Faq from "./components/Faq";
+import SolutionOrientedSection from "./components/SolutionOrientedSection";
 import JoinButton from "./components/buttons/JoinButton";
 import MobileBanner from "./components/MobileBanner";
 import FlyingText from "./components/FlyingText";
@@ -33,6 +34,10 @@ export default function Home() {
               <CardAnimation />
               <FlyingText />
               <JoinButton />
+            </div>
+            {/* Solution Oriented Section */}
+            <div className="bg-white">
+              <SolutionOrientedSection />
             </div>
             <FormSection />
             <Faq />
