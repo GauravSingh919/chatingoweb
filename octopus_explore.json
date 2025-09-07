@@ -1,0 +1,86 @@
+{
+  "page": {
+    "title": "Explore Octopus",
+    "subtitle": "A growing array of products and service providers are joining Octopus every single day so keep checking this space.",
+    "header": "AT A GLANCE",
+    "navigation": {
+      "tabs": [
+        {
+          "name": "PRODUCTS",
+          "active": true
+        },
+        {
+          "name": "SERVICES",
+          "active": false
+        }
+      ]
+    },
+    "categories": [
+      {
+        "name": "Talent Management",
+        "items": [
+          "HR Analytics Software",
+          "HR Management Suites",
+          "Career Management Software",
+          "Employee Engagement Software",
+          "Employee Grievance"
+        ]
+      },
+      {
+        "name": "HRMS / HCM",
+        "items": [
+          "Core HR Softwares",
+          "HR Information Systems (HRIS)",
+          "Human Capital Mangement",
+          "HR Management Systems (HRMS)"
+        ]
+      },
+      {
+        "name": "Recruitment",
+        "items": [
+          "Staffing & Management Software",
+          "Recruiting Software",
+          "Pre-Employment Screening",
+          "Background Checks",
+          "Video Interviewing Software"
+        ]
+      },
+      {
+        "name": "Learning & Development",
+        "items": [
+          "Training / E-Learning",
+          "Corporate LMS",
+          "Course Authoring",
+          "Training Management System",
+          "Learning Experience Systems"
+        ]
+      },
+      {
+        "name": "Total Rewards",
+        "items": [
+          "Benefits Administration",
+          "Corporate Wellness",
+          "Compensation Management",
+          "Employee Recognition",
+          "Performance Management"
+        ]
+      },
+      {
+        "name": "Other Technology",
+        "items": [
+          "Artificial Intelligence",
+          "Blockchain",
+          "Internet of Things",
+          "Machine Learning HR",
+          "VR & AR Software"
+        ]
+      }
+    ],
+    "footer": {
+      "button": {
+        "text": "Explore All Products",
+        "style": "primary"
+      }
+    }
+  }
+}
