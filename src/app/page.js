@@ -8,6 +8,7 @@ import JoinButton from "./components/buttons/JoinButton";
 import MobileBanner from "./components/MobileBanner";
 import FlyingText from "./components/FlyingText";
 import FormSection from "./components/FormSection";
+import PricingCard from "./components/PricingCard";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,9 @@ export default function Home() {
               <JoinButton />
             </div>
             <FormSection />
+            <div className="flex justify-center items-center py-16 bg-gray-100">
+              <PricingCard />
+            </div>
             <Faq />
           </div>
         </div>
